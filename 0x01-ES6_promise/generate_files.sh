@@ -1,5 +1,7 @@
 #!/bin/bash
 
+folder_name="0x01-ES6_promise"
+
 # Create package.json
 echo '{
   "scripts": {
@@ -98,6 +100,11 @@ babel.config.js
 .eslintrc.js
 package-lock.json
 ' > .gitignore
+
+# Create README.md
+echo "
+$folder_name
+" > README.md
 
 npm install
 npm audit fix --force
