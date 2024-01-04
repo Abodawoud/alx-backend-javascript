@@ -42,8 +42,8 @@ export default class HolbertonCourse {
     this._length = newLength;
   }
 
-  get length() {
-    return this._length;
+  get students() {
+    return this._students;
   }
 
   set students(newStudents) {
