@@ -16,6 +16,6 @@ export default class Airport {
   }
 
   toString() {
-    return Object.prototype.toString.call(this._code);
+    return Object.prototype.toString.call(this);
   }
 }
