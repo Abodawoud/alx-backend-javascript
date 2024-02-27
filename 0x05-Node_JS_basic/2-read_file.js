@@ -40,7 +40,6 @@ function countStudents(path) {
       fieldCounts[field].count += 1;
       fieldCounts[field].firstNames.push(firstname);
     });
-    console.log(fieldCounts);
 
     for (const field in fieldCounts) {
       if (Object.hasOwnProperty.call(fieldCounts, field)) {
