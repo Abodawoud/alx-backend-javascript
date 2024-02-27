@@ -1,4 +1,4 @@
-const fs = require('fs/promises');
+const fs = require('fs');
 
 function createStudents(listOfData, fields) {
   const students = [];
@@ -21,7 +21,7 @@ function createStudents(listOfData, fields) {
 
 async function countStudents(path) {
   try {
-    const data = await fs.readFile(path, 'utf-8');
+    const data = await fs.promises.readFile(path, 'utf-8');
     const listOfData = data.split('\n');
     const fields = listOfData[0].split(',');
 
