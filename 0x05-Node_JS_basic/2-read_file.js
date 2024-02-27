@@ -1,10 +1,9 @@
-#!/usr/bin/node
 const fs = require('fs');
 
 function createStudents(listOfData, fields) {
   const students = [];
-  listOfData.shift();
-  listOfData.pop();
+  listOfData.shift(); // Remove header row
+  listOfData.pop(); // Remove empty line at the end
   for (const line of listOfData) {
     const values = line.split(',');
     const student = {};
@@ -19,10 +18,8 @@ function createStudents(listOfData, fields) {
 }
 
 function countStudents(path) {
-  fs.readFile(path, 'utf-8', (err, data) => {
-    if (err) {
-      throw new Error('Cannot load the database');
-    }
+  try {
+    const data = fs.readFileSync(path, 'utf-8');
     const listOfData = data.split('\n');
     const fields = listOfData[0].split(',');
 
@@ -37,7 +34,7 @@ function countStudents(path) {
           firstNames: [],
         };
       }
-      fieldCounts[field].count += 1;
+      fieldCounts[field].count += 1; // Updated to use addition assignment operator
       fieldCounts[field].firstNames.push(firstname);
     });
 
@@ -48,7 +45,9 @@ function countStudents(path) {
         console.log(`Number of students in ${field}: ${count}. List: ${firstNames.join(', ')}`);
       }
     }
-  });
+  } catch (error) {
+    throw new Error('Cannot load the database');
+  }
 }
 
 module.exports = countStudents;
