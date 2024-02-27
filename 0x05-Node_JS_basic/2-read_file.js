@@ -41,6 +41,7 @@ function countStudents(path) {
       fieldCounts[field].firstNames.push(firstname);
     });
 
+    console.log(`Number of students: ${students.length}`);
     for (const field in fieldCounts) {
       if (Object.hasOwnProperty.call(fieldCounts, field)) {
         const { count, firstNames } = fieldCounts[field];
