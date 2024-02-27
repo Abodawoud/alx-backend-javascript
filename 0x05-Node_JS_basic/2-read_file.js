@@ -2,8 +2,10 @@ const fs = require('fs');
 
 function createStudents(listOfData, fields) {
   const students = [];
-  listOfData.shift(); // Remove header row
-  listOfData.pop(); // Remove empty line at the end
+
+  listOfData.shift();
+  listOfData.pop();
+
   for (const line of listOfData) {
     const values = line.split(',');
     const student = {};
@@ -28,13 +30,15 @@ function countStudents(path) {
     const fieldCounts = {};
     students.forEach((student) => {
       const { field, firstname } = student;
+
       if (!fieldCounts[field]) {
         fieldCounts[field] = {
           count: 0,
           firstNames: [],
         };
       }
-      fieldCounts[field].count += 1; // Updated to use addition assignment operator
+
+      fieldCounts[field].count += 1;
       fieldCounts[field].firstNames.push(firstname);
     });
 
