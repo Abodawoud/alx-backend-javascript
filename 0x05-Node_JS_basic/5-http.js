@@ -6,20 +6,16 @@ function homeHandeler(req, res) {
 }
 
 function studentsHandeler(req, res) {
+  res.write('This is the list of our students\n');
   countStudents(process.argv[2])
-    .then(({ fields, NumberOfStudents }) => {
-      res.write('This is the list of our students\n');
-      res.write(`Number of students: ${NumberOfStudents}\n`);
-      let cnt = 0;
-      for (const [field, students] of Object.entries(fields)) {
-        res.write(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
-        if (cnt !== Object.keys(fields).length - 1) res.write('\n');
-        cnt += 1;
-      }
+    .then((result) => {
+      console.log(result);
+      res.write(result.join('\n'));
       res.end();
     })
-    .catch(() => {
-      res.end('This is the list of our students');
+    .catch((error) => {
+      res.write(error.message);
+      res.end();
     });
 }
 

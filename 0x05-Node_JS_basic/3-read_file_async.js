@@ -41,14 +41,18 @@ async function countStudents(path) {
       fieldCounts[field].count += 1;
       fieldCounts[field].firstNames.push(firstname);
     });
-
+    const arr = [];
     console.log(`Number of students: ${students.length}`);
+    arr.push(`Number of students: ${students.length}`);
+
     for (const field in fieldCounts) {
       if (Object.hasOwnProperty.call(fieldCounts, field)) {
         const { count, firstNames } = fieldCounts[field];
         console.log(`Number of students in ${field}: ${count}. List: ${firstNames.join(', ')}`);
+        arr.push(`Number of students in ${field}: ${count}. List: ${firstNames.join(', ')}`);
       }
     }
+    return arr;
   } catch (error) {
     throw new Error('Cannot load the database');
   }
