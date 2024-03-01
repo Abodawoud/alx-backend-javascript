@@ -43,6 +43,9 @@ describe('calculateNumber()', function () {
     it(`should return -1 when the a = -1.5 b = -2.5`, function () {
       assert.strictEqual(calculateNumber('SUBTRACT', -1.5, -2.5), -1);
     });
+    it(`should return -1 when the a = 2.5 b = 1.5`, function () {
+      assert.strictEqual(calculateNumber('SUBTRACT', 2.5, 1.5), -1);
+    });
     it(`should return 0.5 when the a = -1.5 b = -2.5`, function () {
       assert.strictEqual(calculateNumber('DIVIDE', -1.5, -2.5), 0.5);
     });
