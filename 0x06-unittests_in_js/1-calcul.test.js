@@ -31,6 +31,9 @@ describe('calculateNumber()', function () {
     it(`should return 'Error' when the a = 1.5 b = 0.2`, function () {
       assert.strictEqual(calculateNumber('DIVIDE', 1.5, 0.2), 'Error');
     });
+    it(`should return 0 when the a = 0 b = 1`, function () {
+      assert.strictEqual(calculateNumber('DIVIDE', 0, 1), 0);
+    });
   });
 
   describe('Negative Values', function () {
