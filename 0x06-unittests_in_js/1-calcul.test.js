@@ -47,4 +47,14 @@ describe('calculateNumber()', function () {
       assert.strictEqual(calculateNumber('DIVIDE', -1.5, -2.5), 0.5);
     });
   });
+
+  describe('Missing Values', function () {
+    it(`should return NaN when the a = 1.1 b = ???`, function () {
+      assert.strictEqual(calculateNumber('DIVIDE', -1.5), NaN);
+    });
+
+    it(`should return NaN when the a = 1.1 b = ???`, function () {
+      assert.strictEqual(calculateNumber('SUM', -1.5), NaN);
+    });
+  });
 });
