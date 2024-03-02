@@ -4,6 +4,9 @@ const calculateNumber = require('./1-calcul.js');
 
 describe('calculateNumber()', function () {
   describe('Normal function below .5', function () {
+    it(`should return 3 when the a = 1 b = 2`, function () {
+      assert.strictEqual(calculateNumber('SUM', 1, 2), 3);
+    });
     it(`should return 3 when the a = 1.1 b = 2.2`, function () {
       assert.strictEqual(calculateNumber('SUM', 1.1, 2.2), 3);
     });
