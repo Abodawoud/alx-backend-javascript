@@ -11,7 +11,7 @@ describe('calculateNumber()', function () {
       assert.strictEqual(calculateNumber('SUM', 1.1, 2.2), 3);
     });
     it(`should return 1 when the a = 1.1 b = 2.2`, function () {
-      assert.strictEqual(calculateNumber('SUBTRACT', 1.1, 2.2), 1);
+      assert.strictEqual(calculateNumber('SUBTRACT', 1.1, 2.2), -1);
     });
     it(`should return 0.5 when the a = 1.1 b = 2.2`, function () {
       assert.strictEqual(calculateNumber('DIVIDE', 1.1, 2.2), 0.5);
@@ -23,7 +23,7 @@ describe('calculateNumber()', function () {
       assert.strictEqual(calculateNumber('SUM', 1.5, 2.5), 5);
     });
     it(`should return 1 when the a = 1.5 b = 2.5`, function () {
-      assert.strictEqual(calculateNumber('SUBTRACT', 1.5, 2.5), 1);
+      assert.strictEqual(calculateNumber('SUBTRACT', 1.5, 2.5), -1);
     });
     it(`should return 1.5 when the a = 2.5 b = 1.5`, function () {
       assert.strictEqual(calculateNumber('DIVIDE', 2.5, 1.5), 1.5);
@@ -47,10 +47,10 @@ describe('calculateNumber()', function () {
       assert.strictEqual(calculateNumber('SUM', -1.5, -2.5), -3);
     });
     it(`should return -1 when the a = -1.5 b = -2.5`, function () {
-      assert.strictEqual(calculateNumber('SUBTRACT', -1.5, -2.5), -1);
+      assert.strictEqual(calculateNumber('SUBTRACT', -1.5, -2.5), 1);
     });
     it(`should return -1 when the a = 2.5 b = 1.5`, function () {
-      assert.strictEqual(calculateNumber('SUBTRACT', 2.5, 1.5), -1);
+      assert.strictEqual(calculateNumber('SUBTRACT', 2.5, 1.5), 1);
     });
     it(`should return 0.5 when the a = -1.5 b = -2.5`, function () {
       assert.strictEqual(calculateNumber('DIVIDE', -1.5, -2.5), 0.5);
@@ -59,7 +59,7 @@ describe('calculateNumber()', function () {
       assert.strictEqual(calculateNumber('SUBTRACT', 1, 1), 0);
     });
     it(`should return 0.5 when the a = -1.5 b = -2.5`, function () {
-      assert.strictEqual(calculateNumber('SUBTRACT', 2.6, 1.4), -2);
+      assert.strictEqual(calculateNumber('SUBTRACT', 1.4, 4.5), -4);
     });
   });
 

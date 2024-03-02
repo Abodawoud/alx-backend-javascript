@@ -5,7 +5,7 @@ function calculateNumber(type, a, b) {
       return Math.round(a) + Math.round(b);
     },
     SUBTRACT: () => {
-      return Math.round(b) - Math.round(a);
+      return Math.round(a) - Math.round(b);
     },
     DIVIDE: () => {
       if (Math.round(b) === 0) {
