@@ -1,25 +1,24 @@
 #!/usr/bin/node
 const request = require('request');
-const app = require('./api');
 const { expect } = require('chai');
 
-describe('Index page', () => {
+describe('home', () => {
   it('should return status code 200', (done) => {
-    request.get('http://localhost:7865', (_, res) => {
+    request('http://localhost:7865', (err, res, body) => {
       expect(res.statusCode).to.equal(200);
       done();
     });
   });
 
   it('should return "Welcome to the payment system"', (done) => {
-    request.get('http://localhost:7865', (_, res, body) => {
+    request('http://localhost:7865', (err, res, body) => {
       expect(body).to.equal('Welcome to the payment system');
       done();
     });
   });
 
-  it('should return status code 404 for non-existing route', (done) => {
-    request.get('http://localhost:7865/non-existing-route', (_, res) => {
+  it('should return status code 404 for non_existing route', (done) => {
+    request('http://localhost:7865/non_existing', (err, res, body) => {
       expect(res.statusCode).to.equal(404);
       done();
     });
